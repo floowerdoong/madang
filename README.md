@@ -4,8 +4,7 @@
 
 여러 폴더에서 돌아가는 **Claude Code**와 **Codex** 세션을 한 화면에 모아 보고, 할 일을 적어 바로 시키는 macOS 앱입니다.
 
-<!-- 확인 필요: 대표 이미지 / 시연 GIF — 촬영 뒤 docs/shots/ 에 넣는다 -->
-![Madang 대시보드](docs/shots/01_dashboard.png)
+<!-- 촬영 뒤 여기에 대표 이미지 / 시연 GIF를 넣는다 (docs/shots/) -->
 
 터미널 탭을 하나씩 눌러 가며 「어느 세션이 끝났지, 어느 세션이 승인을 기다리며 멈춰 있지」를 확인하던 일을 없애려고 만들었습니다.
 세션은 사무실에 앉은 캐릭터로 보이고, 할 일은 리스트·보드로 정리되며, 할 일을 그 폴더의 세션에게 곧바로 시킬 수 있습니다.
@@ -109,7 +108,7 @@ rm ~/Library/Application\ Support/madang/yolo                                   
 [Flutter](https://docs.flutter.dev/get-started/install/macos) 3.41 이상과 Xcode가 필요합니다.
 
 ```bash
-git clone <!-- 확인 필요: 저장소 주소 -->
+git clone https://github.com/floowerdoong/madang.git
 cd madang
 python3 scripts/setup.py        # 준비물 확인 → 빌드 → ~/Applications/Madang 설치 → 앱 열기
 ```
@@ -147,4 +146,4 @@ python3 scripts/install.py --run
 MIT — [`LICENSE`](LICENSE). 함께 들어 있는 픽셀 그림도 같은 라이선스를 따릅니다.
 배포 앱에 들어 있는 [tmux](https://github.com/tmux/tmux)(ISC)·[libevent](https://libevent.org)(BSD)·[utf8proc](https://github.com/JuliaStrings/utf8proc)(MIT)의 라이선스는 앱의 `Contents/Resources/ThirdParty/`에 있습니다.
 
-Made by [MUWIDARANI](<!-- 확인 필요: 홈페이지 주소 -->)
+Made by [MUWIDARANI](https://github.com/floowerdoong)
