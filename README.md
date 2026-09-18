@@ -41,7 +41,7 @@ tmux(세션을 띄우는 도구)는 **앱에 들어 있어 따로 설치하지 �
 
 ### 2. 앱 받기
 
-1. [Releases](<!-- 확인 필요: 저장소 주소 -->)에서 `Madang-<버전>-macos-arm64.dmg`를 받습니다
+1. [Releases](https://github.com/floowerdoong/madang/releases/latest)에서 `Madang-<버전>-macos-arm64.dmg`를 받습니다
 2. DMG를 열고 **Madang을 「응용 프로그램」 폴더로 끌어 놓습니다**
 3. 응용 프로그램 폴더에서 Madang을 엽니다
 
