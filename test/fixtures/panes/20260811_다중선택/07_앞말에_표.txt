@@ -1,0 +1,60 @@
+
+╭─── Claude Code v2.1.228 ─────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting started                                        │
+│                 Welcome back 꽃동!                 │ Ask Claude to create a new app or clone a repository            │
+│                                                    │ ─────────────────────────────────────────────────────────────── │
+│                       ▐▛███▜▌                      │ What's new                                                      │
+│                      ▝▜█████▛▘                     │ Fixed interactive sessions that could stop redrawing entirely,… │
+│                        ▘▘ ▝▝                       │ Fixed `git` / Git Bash not being found on Windows when Claude … │
+│   Opus 5 (1M context) with medi… · Claude Max ·    │ Fixed `/tui` reverting the session to an earlier model when `/… │
+│   xxxxxxxxxxxx@mail.test's Organization            │ /release-notes for more                                         │
+│                /…/scratchpad/table                 │                                                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ ⚠ 1 MCP server needs authentication · run /mcp
+
+❯ 표를 하나 그려서 보여준 다음에 AskUserQuestion 으로 물어봐줘. 표는 세 줄짜리 마크다운 표로 만들고 열은 이름/값 두 개,
+  행은 사과 1000, 바나나 2000 이렇게. 표를 보여준 뒤 어느 것을 살지 두 선택지로 물어봐줘.
+
+⏺ ┌────────┬──────┐
+  │  이름  │  값  │
+  ├────────┼──────┤
+  │ 사과   │ 1000 │
+  ├────────┼──────┤
+  │ 바나나 │ 2000 │
+  └────────┴──────┘
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ ☐ 구매 선택
+
+어느 것을 살까요?
+
+❯ 1. 사과 (1000)
+     더 저렴한 쪽입니다.
+  2. 바나나 (2000)
+     더 비싼 쪽입니다.
+  3. Type something.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  4. Chat about this
+
+Enter to select · ↑/↓ to navigate · Esc to cancel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

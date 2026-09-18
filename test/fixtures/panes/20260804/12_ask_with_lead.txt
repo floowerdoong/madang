@@ -1,0 +1,60 @@
+  ⎿  Set effort level to low (saved as your default for new sessions): Quick, straightforward implementation with
+     minimal overhead
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ 샘플 폴더 파일 개수만 세줘
+
+  Listed 1 directory
+
+⏺ 샘플 폴더에 4개 있다요.
+
+✻ Cogitated for 7s
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /model
+  ⎿  Kept model as Opus 5 (1M context)
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ /effort
+  ⎿  Cancelled
+
+❯ AskUserQuestion 도구로 "점심 뭐 먹을까" 를 선택지 두 개로 물어봐줘. 다른 말은 하지 말고 바로 물어봐줘.
+  점심 메뉴를 AskUserQuestion 으로 물어봐줘. 앞에 왜 묻는지 세 문장 설명하고 나서.
+
+⏺ 동현동현이 점심 메뉴를 정해달라고 해서 물어보는 거다요. 제가 임의로 고르면 취향과 다를 수 있어서 직접 고르는 게
+  맞다요. 아래 두 선택지 중에 골라주면 된다요.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ ☐ 점심 메뉴
+
+점심 뭐 먹을까요?
+
+❯ 1. 한식 백반
+     국이랑 반찬 나오는 든든한 밥. 속 편하고 무난하다요.
+  2. 라멘/면류
+     따뜻한 국물 면 요리. 빨리 먹고 나오기 좋다요.
+  3. Type something.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  4. Chat about this
+
+Enter to select · ↑/↓ to navigate · Esc to cancel

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>사무실 층 구조 시안 — A · B · C</title>
+<style>
+:root{
+  --bg:#f7f6f3; --panel:#fff; --line:#e7e5e0; --line2:#d8d5cf; --fg:#2b2a27; --dim:#6b6862; --faint:#8c8b86;
+  --hover:#f1efeb; --accent:#5b5bd6; --accent-soft:#ececfb; --card:#fff;
+  /* 시간대 — 코드가 덧입히는 하늘색(지금 판과 같은 값) */
+  --sky-morning:linear-gradient(180deg,rgba(255,236,196,.55),rgba(255,255,255,0) 70%);
+  --sky-evening:linear-gradient(180deg,rgba(64,72,128,.5),rgba(255,180,90,.18) 70%);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#191919; --panel:#232323; --line:#333230; --line2:#403f3c; --fg:#ededeb; --dim:#a8a6a1; --faint:#8c8b86;
+    --hover:#2b2b2a; --accent:#8b8bf0; --accent-soft:#2a2a44; --card:#262626;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;padding:28px 20px 60px;background:var(--bg);color:var(--fg);
+  font:14px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Helvetica Neue",sans-serif}
+h1{font-size:22px;margin:0 0 6px}
+h2{font-size:16px;margin:0 0 4px}
+.sub{color:var(--dim);font-size:13px;max-width:760px;margin:0 0 24px}
+.cols{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+.col{flex:0 0 auto;max-width:300px}
+.col>p{color:var(--dim);font-size:12.5px;margin:6px 0 14px}
+.tag{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;margin-left:6px;
+  background:var(--accent-soft);color:var(--accent)}
+.tag.warn{background:#fdecec;color:#c0392b}
+@media (prefers-color-scheme:dark){}
+.state{font-size:11.5px;font-weight:700;color:var(--faint);margin:14px 0 5px}
+
+/* ── 실제 사무실 칸과 같은 폭(236px) ── */
+.panel{width:236px;background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:8px 8px 10px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.floor{position:relative;border-radius:14px;background:var(--hover);margin-bottom:8px;padding:4px;overflow:hidden}
+.floor.boss{background:var(--accent-soft)}
+.flabel{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:var(--faint);padding:2px 6px 5px;position:relative;z-index:2}
+.flabel .fl{border:1px solid var(--line2);border-radius:6px;padding:0 5px;background:var(--panel)}
+.node{position:relative;z-index:2;display:flex;align-items:center;gap:6px;min-height:38px;padding:2px 6px 2px 4px;border-radius:10px}
+.node+.node{box-shadow:inset 0 1px 0 var(--line)}
+.kids{padding-left:14px}
+.nm{font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.node.staff .nm{font-size:12px;font-weight:700}
+.dot{width:7px;height:7px;border-radius:50%;background:#3fb37f;margin-left:auto;flex:none}
+
+/* 캐릭터 자리 — 실제는 64px 스프라이트를 0.5배로 그린다(화면 32px) */
+.ch{width:30px;height:30px;flex:none;image-rendering:pixelated;border-radius:4px;
+  background:
+    linear-gradient(#0000 0 62%,#00000022 62% 66%,#0000 66%),
+    radial-gradient(circle at 50% 30%,#d9a05b 0 32%,#0000 33%),
+    linear-gradient(180deg,#0000 0 42%,#6b7bb5 42% 100%);
+}
+.node.lead .ch{width:34px;height:34px}
+
+/* ── A안: 줄마다 책상 한 칸 ── */
+.a .node{padding-bottom:6px}
+.a .node::after{content:'';position:absolute;left:0;right:0;bottom:0;height:13px;z-index:-1;
+  background:
+    linear-gradient(90deg,#0000 0 6px,#8a6a48 6px 78%,#0000 78%),      /* 상판 */
+    linear-gradient(90deg,#0000 0 14px,#6d5237 14px 18px,#0000 18px);  /* 다리 */
+  opacity:.85}
+.a .node.lead::after{height:16px;
+  background:linear-gradient(90deg,#0000 0 4px,#7a5334 4px 86%,#0000 86%),
+             linear-gradient(90deg,#0000 0 12px,#5d3f27 12px 17px,#0000 17px)}
+.a .floor{padding-bottom:10px}
+.a .floor::after{content:'';position:absolute;left:0;right:0;bottom:0;height:10px;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,#0000,rgba(120,90,60,.18))}
+.a .floor::before{content:'';position:absolute;right:8px;top:8px;width:52px;height:38px;border-radius:3px;z-index:0;
+  background:var(--sky-morning),#bcd9f2;border:2px solid #9a8467;opacity:.85}
+.a .floor.eve::before{background:var(--sky-evening),#2b3358}
+
+/* ── B안: 방을 세 조각으로(위·반복·아래) ── */
+.b .floor{padding:0 4px 12px;background:
+  linear-gradient(180deg,rgba(0,0,0,.05) 0 10px,#0000 10px),           /* 천장 */
+  repeating-linear-gradient(90deg,#0000 0 22px,rgba(0,0,0,.035) 22px 23px), /* 벽 무늬(세로로 반복) */
+  var(--hover)}
+.b .floor.boss{background:
+  linear-gradient(180deg,rgba(0,0,0,.07) 0 10px,#0000 10px),
+  repeating-linear-gradient(90deg,#0000 0 22px,rgba(0,0,0,.05) 22px 23px),
+  var(--accent-soft)}
+.b .floor::after{content:'';position:absolute;left:0;right:0;bottom:0;height:12px;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,#8a6a48,#6d5237);opacity:.75}
+.b .floor::before{content:'';position:absolute;right:10px;top:26px;width:56px;height:44px;border-radius:3px;z-index:0;
+  background:var(--sky-morning),#bcd9f2;border:2px solid #9a8467;opacity:.9}
+.b .floor.eve::before{background:var(--sky-evening),#2b3358}
+.b .flabel{padding-top:4px}
+
+/* ── C안: 층 높이 고정 + 안에서 스크롤 ── */
+.c .floor{height:120px;overflow-y:auto;padding-bottom:4px}
+.c .floor::before{content:'';position:sticky;display:block;top:0;height:0}
+.c .room{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,#0000 0 68%,rgba(120,90,60,.28) 68%),var(--sky-morning)}
+
+.note{margin:10px 0 0;font-size:12px;color:var(--dim);line-height:1.55}
+.note b{color:var(--fg)}
+.pros{margin:8px 0 0;padding:0;list-style:none;font-size:12px}
+.pros li{margin:3px 0;padding-left:15px;position:relative;color:var(--dim)}
+.pros li::before{content:'＋';position:absolute;left:0;color:#2f9e6a;font-weight:800}
+.pros li.con::before{content:'－';color:#c0392b}
+.foot{margin:34px 0 0;padding:14px 16px;border-radius:12px;background:var(--hover);max-width:780px;font-size:13px;color:var(--dim)}
+.foot b{color:var(--fg)}
+.folded{width:58px;padding:6px 5px}
+.folded .nm,.folded .flabel b,.folded .dot{display:none}
+.folded .node{justify-content:center;padding:2px 0}
+.folded .kids{padding-left:0}
+</style>
+</head>
+<body>
+<h1>사무실 층 구조 — 세 가지 안</h1>
+<p class="sub">한 층은 <b>팀장 하나 + 사원 여럿</b>이고 사원 수가 계속 바뀐다. 그래서 「배경 한 장을 아래에 붙인다」로는
+혼자인 층은 그림이 잘리고, 사원이 많은 층은 빈 벽만 길어진다. 아래는 <b>사람 수가 변해도 안 깨지는</b> 세 가지 짜임새다.
+칸 너비는 실제와 같은 236px이고, 그림은 자리만 잡은 가짜다(진짜는 픽셀아트).</p>
+
+<div class="cols">
+
+  <div class="col a">
+    <h2>A안 — 줄마다 책상 한 칸<span class="tag">추천</span></h2>
+    <p>배경을 층이 아니라 <b>세션 줄 하나하나</b>에 깐다. 캐릭터마다 제 책상이 붙어 다니므로 사원이 몇이든 저절로 맞는다.</p>
+
+    <div class="state">사원 없음 (팀장 혼자)</div>
+    <div class="panel">
+      <div class="floor boss">
+        <div class="flabel"><span class="fl">꼭대기</span><b>무위다라니</b></div>
+        <div class="node lead"><span class="ch"></span><span class="nm">02_무위다라니</span><i class="dot"></i></div>
+      </div>
+    </div>
+
+    <div class="state">사원 셋</div>
+    <div class="panel">
+      <div class="floor">
+        <div class="flabel"><span class="fl">8F</span><b>otaku_log</b></div>
+        <div class="node lead"><span class="ch"></span><span class="nm">otaku_log</span><i class="dot"></i></div>
+        <div class="kids">
+          <div class="node staff"><span class="ch"></span><span class="nm">titles</span><i class="dot"></i></div>
+          <div class="node staff"><span class="ch"></span><span class="nm">marketing</span><i class="dot"></i></div>
+          <div class="node staff"><span class="ch"></span><span class="nm">lib</span><i class="dot"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="pros">
+      <li>사람이 늘고 줄어도 그림이 안 깨진다</li>
+      <li>「책상에 앉아서 일한다」는 처음 기획 그대로다</li>
+      <li>그림 조각이 적다 — 팀장 책상 · 사원 책상 · 창문 셋</li>
+      <li class="con">방 느낌(벽·천장)은 약하다</li>
+    </ul>
+  </div>
+
+  <div class="col b">
+    <h2>B안 — 방을 세 조각으로</h2>
+    <p>위(천장) · 가운데(벽, <b>높이만큼 반복</b>) · 아래(바닥)로 나눠 그린다. 층이 길어지면 가운데만 늘어난다.</p>
+
+    <div class="state">사원 없음</div>
+    <div class="panel">
+      <div class="floor boss">
+        <div class="flabel"><span class="fl">꼭대기</span><b>무위다라니</b></div>
+        <div class="node lead"><span class="ch"></span><span class="nm">02_무위다라니</span><i class="dot"></i></div>
+      </div>
+    </div>
+
+    <div class="state">사원 셋 — 가운데(벽)만 늘어난다</div>
+    <div class="panel">
+      <div class="floor eve">
+        <div class="flabel"><span class="fl">8F</span><b>otaku_log</b></div>
+        <div class="node lead"><span class="ch"></span><span class="nm">otaku_log</span><i class="dot"></i></div>
+        <div class="kids">
+          <div class="node staff"><span class="ch"></span><span class="nm">titles</span><i class="dot"></i></div>
+          <div class="node staff"><span class="ch"></span><span class="nm">marketing</span><i class="dot"></i></div>
+          <div class="node staff"><span class="ch"></span><span class="nm">lib</span><i class="dot"></i></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">위 칸은 <b>저녁</b>으로 칠했다 — 같은 그림에 창밖 색만 코드가 덧입힌 모습이다.</p>
+
+    <ul class="pros">
+      <li>진짜 「방」처럼 보인다 — 벽·천장·바닥이 다 있다</li>
+      <li>시간대 색을 창문 한 곳에서 바꾸면 된다</li>
+      <li class="con">이어붙는 그림(타일)이라 그리는 규칙이 까다롭다</li>
+      <li class="con">책상이 없으면 캐릭터가 허공에 선다 — 결국 A를 같이 써야 한다</li>
+    </ul>
+  </div>
+
+  <div class="col c">
+    <h2>C안 — 층 높이 고정<span class="tag warn">권하지 않음</span></h2>
+    <p>층 높이를 120px로 묶고 넘치면 층 안에서 스크롤한다. 그림은 한 장으로 끝난다.</p>
+
+    <div class="state">사원 셋 — 둘째부터 스크롤해야 보인다</div>
+    <div class="panel">
+      <div class="floor">
+        <div class="room"></div>
+        <div class="flabel"><span class="fl">8F</span><b>otaku_log</b></div>
+        <div class="node lead"><span class="ch"></span><span class="nm">otaku_log</span><i class="dot"></i></div>
+        <div class="kids">
+          <div class="node staff"><span class="ch"></span><span class="nm">titles</span><i class="dot"></i></div>
+          <div class="node staff"><span class="ch"></span><span class="nm">marketing</span><i class="dot"></i></div>
+          <div class="node staff"><span class="ch"></span><span class="nm">lib</span><i class="dot"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="pros">
+      <li>그림이 한 장이면 끝난다</li>
+      <li class="con"><b>한눈에 다 보이는 것</b>이 이 화면의 값어치인데 그걸 깎는다</li>
+      <li class="con">승인 대기 중인 사원이 스크롤 아래 숨는다</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="foot">
+  <p style="margin:0 0 8px"><b>접었을 때(58px)도 살아야 한다.</b> 사무실을 ⟩로 접으면 얼굴만 남는데, A안은 책상이
+  얼굴 아래 따라붙어 그대로 쓸 수 있다. B안은 벽·창문이 다 잘려 사실상 A로 떨어진다.</p>
+  <div style="display:flex;gap:14px;align-items:flex-start">
+    <div class="panel folded a">
+      <div class="floor boss"><div class="flabel"><span class="fl">＊</span><b>x</b></div>
+        <div class="node lead"><span class="ch"></span></div></div>
+      <div class="floor"><div class="flabel"><span class="fl">8</span><b>x</b></div>
+        <div class="node lead"><span class="ch"></span></div>
+        <div class="kids"><div class="node staff"><span class="ch"></span></div>
+          <div class="node staff"><span class="ch"></span></div></div></div>
+    </div>
+    <p style="margin:0">← 접은 모습(A안). 얼굴과 책상만 남는다.</p>
+  </div>
+  <p style="margin:12px 0 0"><b>내 추천은 A를 뼈대로 하고 B의 얇은 버전을 얹는 것</b> — 줄마다 책상을 깔고, 층에는
+  바닥선과 오른쪽 창문만 둔다. 그림은 「팀장 책상 · 사원 책상 · 창문」 세 조각이면 되고, 시간대는 창문 색으로 바뀐다.</p>
+</div>
+
+</body>
+</html>

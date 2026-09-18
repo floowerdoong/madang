@@ -1,0 +1,60 @@
+
+╭─── Claude Code v2.1.227 ─────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting started                                        │
+│                 Welcome back 꽃동!                 │ Ask Claude to create a new app or clone a repository            │
+│                                                    │ ─────────────────────────────────────────────────────────────── │
+│                       ▐▛███▜▌                      │ What's new                                                      │
+│                      ▝▜█████▛▘                     │ Fixed feature flags being evaluated without the user's subscri… │
+│                        ▘▘ ▝▝                       │ Fixed every Bash command failing under `claude-code-action` wi… │
+│   Opus 5 (1M context) with medi… · Claude Max ·    │ Fixed `/tui` bringing back a conversation that had been rewoun… │
+│   xxxxxxxxxxxx@mail.test's Organization            │ /release-notes for more                                         │
+│                /…/scratchpad/mtest                 │                                                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+ ⚠ 1 MCP server needs authentication · run /mcp
+
+❯ AskUserQuestion 도구로 multiSelect true 인 질문 하나만 바로 물어봐줘. 선택지는 사과, 바나나, 포도 세 개. 다른 말이나
+  다른 도구는 쓰지 말고 바로 물어봐줘.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+←  ☐ 과일  ✔ Submit  →
+
+어떤 과일을 좋아하세요?
+
+❯ 1. [ ] 사과
+  아삭하고 달콤한 사과
+  2. [ ] 바나나
+  부드럽고 든든한 바나나
+  3. [ ] 포도
+  즙이 많고 달콤한 포도
+  4. [ ] Type something
+     Submit
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  5. Chat about this
+
+Enter to select · ↑/↓ to navigate · Esc to cancel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

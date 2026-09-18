@@ -1,0 +1,50 @@
+
+╭─── Claude Code v2.1.221 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting started                                                                                                                        │
+│                 Welcome back 꽃동!                 │ Run /init to create a CLAUDE.md file with instructions for Claude                                                                               │
+│                                                    │ ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── │
+│                       ▐▛███▜▌                      │ What's new                                                                                                                                      │
+│                      ▝▜█████▛▘                     │ [VSCode] Added Focus view: a chat-menu toggle that hides tool activity behind an expandable per-turn summary with a live running-tool indicato… │
+│                        ▘▘ ▝▝                       │ Added `mode: "mask"` for sandbox credential files on Linux and WSL — sandboxed commands read a sentinel copy (the whole file, or just the span… │
+│   Opus 5 (1M context) with high… · Claude Max ·    │ Added warnings to `claude plugin validate` when a marketplace or plugin name would be rejected by Claude Desktop's managed marketplace sync     │
+│   xxxxxxxxxxxx@mail.test's Organization            │ /release-notes for more                                                                                                                         │
+│       ~/.claude/jobs/ef53afbc/tmp/tmux_test        │                                                                                                                                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+❯ 1+1은 뭐야? 다른 말 없이 숫자만 한 줄로 답해줘
+
+⏺ 2
+
+✻ Sautéed for 1s
+
+❯ 마크다운으로 제목 하나, 표 하나(2행), 코드블록 하나, 목록 3개를 포함한 짧은 답을 써줘. 파일은 만들지 마.
+
+⏺ 마크다운 예시
+
+  ┌──────┬──────┐
+  │ 항목 │  값  │
+  ├──────┼──────┤
+  │ 이름 │ 예시 │
+  ├──────┼──────┤
+  │ 결과 │ 2    │
+  └──────┴──────┘
+
+  print(1 + 1)  # 2
+
+  - 제목은 # 개수로 단계를 정합니다
+  - 표는 |와 구분선으로 만듭니다
+  - 코드블록은 백틱 세 개로 감쌉니다
+
+✻ Baked for 4s
+
+
+
+
+
+
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 프로젝트 세팅 요구사항 확인 ──
+❯ 표에 행 하나 더 추가해줘
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ⏸ manual mode on · ? for shortcuts · ← for agents                                                                                                                                                 /rc
