@@ -1,0 +1,60 @@
+
+ ▐▛███▛█   Claude Code v2.1.251
+▝▜██████▀  Opus 5 (1M context) with medium effort · Claude Max
+  ▝▝ ▝▝    /…/-Users-someone00-Desktop-02-------02------/95adbc3b-20b4-4547-a259-fe059d78d2e1/scratchpad/mtest2
+
+⚠ 2 MCP servers need authentication · run /mcp
+
+❯ Use the AskUserQuestion tool right now with TWO questions, both multiSelect true. Q1 header "Fruit" question "Which
+  fruits?" options apple/banana/grape. Q2 header "Drink" question "Which drinks?" options coffee/tea/juice. Do not use
+  any other tool, do not say anything else.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+←  ☒ Fruit  ☐ Drink  ✔ Submit  →
+
+Which drinks?
+
+❯ 1. [ ] coffee
+  Coffee
+  2. [ ] tea
+  Tea
+  3. [ ] juice
+  Juice
+  4. [ ] Type something
+     Submit
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  5. Chat about this
+
+Enter to select · Tab/Arrow keys to navigate · Esc to cancel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
