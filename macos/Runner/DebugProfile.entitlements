@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 샌드박스를 끈다. 켜두면 컨테이너 밖의 art/ 폴더를 읽지 못하고,
+	     v1에서 붙일 tmux 호출(Process.run)도 막힌다. 로컬 전용 도구라 배포하지 않는다.
+	     network.server는 훅 수신에 반드시 필요하므로 그대로 둔다. -->
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+	<key>com.apple.security.cs.allow-jit</key>
+	<true/>
+	<key>com.apple.security.network.server</key>
+	<true/>
+</dict>
+</plist>

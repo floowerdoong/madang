@@ -1,0 +1,122 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# 비공개 설정 (슬랙 웹훅 · 노션 토큰)
+scripts/local_config.py
+
+# 자동 생성되는 작업 데이터
+scripts/current_tasks.json
+scripts/last_report.json
+
+# 등록된 프로젝트 목록 (절대경로라 머신마다 다르다)
+watched_projects.json
+
+# 마지막 창 위치 (머신마다 다르다)
+window_state.json
+window_state.dev*.json
+
+# 차단 폴더 목록 (절대경로라 머신마다 다르다)
+blocked_paths.json
+chat_log.json
+chat_log.dev*.json
+tasks.json
+tasks.dev*.json
+todo_open.json
+todo_open.dev*.json
+todo_key.json
+todo_key.dev*.json
+
+# 토큰 사용량 캐시 (transcript를 어디까지 읽었는지. 머신마다 다르다)
+usage_cache.json
+
+# 백업본 전부. 대화·할 일에는 거래처 이름과 개인정보가 섞인다 —
+# 공개 저장소에 들어가면 안 된다. 2026-08-12에 실제로 두 개가 커밋됐었다.
+*.bak
+*.bak-*
+*.json.bak
+*.json.*.bak
+
+# 이 저장소를 만드는 사람의 클로드 코드 설정. Stop 훅이 자동 커밋과 슬랙
+# 보고를 돌리는데, 그건 이 기계의 작업 흐름이지 받는 사람이 원할 일이 아니다.
+# 파일은 그대로 두고 추적만 뺀다(2026-09-09).
+.claude/settings.json
+
+# 승인 생략을 켜 두는 표식. 켤지 말지는 쓰는 사람이 정한다 —
+# 저장소에 들어가면 받는 사람이 모르는 채로 켜진 채 시작한다.
+yolo
+
+# 붙여넣은 그림 (클립보드에서 뜬 것)
+pasted/
+pasted.dev*/
+
+# 프로젝트 목록(노션이사 3/6). 거래처 이름이 들어 있다 — 공개하지 않는다
+projects.json
+projects.dev*.json
+tasks.json.before-import-*.bak
+# 근무기록(노션이사). 타임라인에 외주 금액·거래처·개인 일정이 섞인다 — 공개하지 않는다
+worklog.json
+worklog.dev*.json
+# 세션 기록(노션이사). 태스크 이름에 거래처가 섞인다
+sessions.json
+sessions.dev*.json
+
+# ── 오픈소스 보안 점검(2026-09-16)으로 더한 것 ──
+# 창 자리·켜는 모양 — 기계마다 다르다
+launch_mode.json
+launch_mode.dev*.json
+# 근무기록의 이름·월 목표 — 쓰는 사람마다 다르다
+work_settings.json
+# 진단 스위치 — 앱 옆에 두면 켜진다(설치본 전용)
+debug_focus
+no_focus_fix
+# 터미널 캡처 원본 — 개인 경로·이메일이 있다. 테스트는 흔적 지운 test/fixtures/panes/ 를 읽는다
+docs/tmux_검증_*/
+
+# 사무실 꾸밈 — 세션 별명·층 차례 (기계마다 다르다)
+office_layout.json
+office_layout.dev*.json
+
+# 사무실 층 그림(벽·책상·창문)은 저장소에 둔다 — 앱과 함께 배포되는 자산이다.
